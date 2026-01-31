@@ -1,55 +1,48 @@
-import type { Project } from '../data/projects'
+import { motion } from "framer-motion"
+import type { Project } from "../data/projects"
 
-
-
-interface Props {
+type Props = {
   project: Project
 }
 
-function ProjectCard({ project }: Props) {
+export default function ProjectCard({ project }: Props) {
   return (
-    <article className="group border border-neutral-800 rounded-2xl p-6 hover:border-white transition">
-  <h3 className="text-2xl font-semibold mb-3">
-    {project.title}
-  </h3>
+    <motion.article
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      className="bg-zinc-900 rounded-2xl p-6 shadow-lg"
+    >
+      <h3 className="text-xl font-semibold">{project.title}</h3>
+      <p className="text-zinc-400 mt-2">{project.description}</p>
 
-  <p className="text-neutral-400 mb-6 leading-relaxed">
-    {project.description}
-  </p>
-
-  <ul className="flex flex-wrap gap-2 mb-6">
-    {project.technologies.map((tech) => (
-      <li
-        key={tech}
-        className="text-xs px-3 py-1 border border-neutral-700 rounded-full text-neutral-300"
-      >
-        {tech}
-      </li>
-    ))}
-  </ul>
-
-  <div className="flex gap-6 text-sm">
-    <a
+       {project.githubUrl && (
+    <motion.a
+      whileHover={{ x: 4 }}
+      transition={{ type: "spring", stiffness: 300 }}
       href={project.githubUrl}
       target="_blank"
-      className="underline underline-offset-4 hover:text-white"
+      className="inline-block mt-4 text-sm text-indigo-400 hover:underline"
     >
       Código
-    </a>
+    </motion.a>
+  )}
+<br />
+  {project.liveUrl && (
+    <motion.a
+      whileHover={{ x: 4 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      href={project.liveUrl}
+      target="_blank"
+      className="inline-block mt-4 text-sm text-indigo-400 hover:underline"
+    >
+      Ver Sitio Web
+    </motion.a>
+  )}
 
-    {project.liveUrl && (
-      <a
-        href={project.liveUrl}
-        target="_blank"
-        className="underline underline-offset-4 hover:text-white"
-      >
-        Demo
-      </a>
-    )}
-  </div>
-</article>
-
+    </motion.article>
   )
 }
-
-export default ProjectCard

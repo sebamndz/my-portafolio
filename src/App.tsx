@@ -1,11 +1,72 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
+import { AnimatePresence, motion } from "framer-motion"
 
-import Home from './pages/Home'
-import Projects from './pages/Projects'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+
+import Home from "./pages/Home"
+import Projects from "./pages/Projects"
+import About from "./pages/About"
+import Contact from "./pages/Contact"
+
+// Wrapper para animar cada página
+function PageWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="flex-grow"
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+// Rutas animadas
+function AnimatedRoutes() {
+  const location = useLocation()
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageWrapper>
+              <Home />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/proyectos"
+          element={
+            <PageWrapper>
+              <Projects />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/sobre-mi"
+          element={
+            <PageWrapper>
+              <About />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/contacto"
+          element={
+            <PageWrapper>
+              <Contact />
+            </PageWrapper>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  )
+}
 
 function App() {
   return (
@@ -14,12 +75,7 @@ function App() {
         <Navbar />
 
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/proyectos" element={<Projects />} />
-            <Route path="/sobre-mi" element={<About />} />
-            <Route path="/contacto" element={<Contact />} />
-          </Routes>
+          <AnimatedRoutes />
         </main>
 
         <Footer />
