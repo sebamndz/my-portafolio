@@ -3,7 +3,7 @@ import Reveal from "../components/Reveal"
 
 const EMAIL = "sebamndz@gmail.com"
 const GITHUB = "https://github.com/sebamndz"
-const LINKEDIN = "https://www.linkedin.com/in/tu-usuario" // cámbialo
+const LINKEDIN = "https://www.linkedin.com/in/sebamndz/" // cámbialo
 
 export default function Contact() {
   const [name, setName] = useState("")
