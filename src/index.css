@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+:root {
+  --bg: 0 0 0;          /* negro */
+  --fg: 255 255 255;    /* blanco */
+  --muted: 163 163 163; /* gris texto secundario */
+  --accent: 239 68 68;  /* rojo (red-500) */
+  --border: 38 38 38;   /* borde sutil */
+}
