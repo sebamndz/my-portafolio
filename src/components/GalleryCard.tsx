@@ -21,12 +21,14 @@ export default function GalleryCard({
       className="text-left rounded-2xl border border-neutral-800 bg-black overflow-hidden hover:border-red-500/60 transition"
       whileHover={{ y: -4 }}
     >
-      <div className="aspect-[4/3] overflow-hidden">
+      <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-neutral-800
+           hover:border-red-500/60 transition">
         <img
           src={item.imageUrl}
           alt={item.title}
           loading="lazy"
-          className="h-full w-full object-cover opacity-90 hover:opacity-100 transition"
+          className="h-full w-full object-cover transition duration-500
+           group-hover:scale-105 group-hover:contrast-110"
         />
       </div>
 
