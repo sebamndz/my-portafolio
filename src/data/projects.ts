@@ -61,6 +61,6 @@ export const projects: Project[] = [
     "Arquitectura limpia con DTOs y separación de responsabilidades",
     "API documentada con Swagger y demo funcional",
   ],
-  githubUrl: "https://github.com/sebamndz/helpdesk-api",
+  githubUrl: "https://github.com/sebamndz/HelpDesk",
 }
 ]
