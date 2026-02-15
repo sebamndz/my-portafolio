@@ -122,7 +122,7 @@ export default function Hero() {
               También ofrezco mantenimiento web: seguridad, updates, backups y rendimiento.
             </motion.p>
           </div>
-
+        </div>
 
         {/* ================= FEATURED ================= */}
         <motion.section
