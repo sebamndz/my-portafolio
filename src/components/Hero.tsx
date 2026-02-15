@@ -123,23 +123,6 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          {/* FOTO */}
-          <motion.div variants={item} className="flex justify-center md:justify-end">
-            <div className="relative">
-              <div className="absolute -inset-3 rounded-[28px] border border-red-500/20" />
-              <div className="absolute -inset-6 rounded-[34px] bg-red-500/10 blur-2xl" />
-
-              <div className="relative overflow-hidden rounded-3xl border border-neutral-800 bg-black shadow-2xl">
-                <img
-                  src="https://i.ibb.co/1GQ430Z3/Mi-foto-pro.png"
-                  alt="Mi foto profesional"
-                  className="h-[420px] w-[340px] md:h-[460px] md:w-[360px] object-cover saturate-90 contrast-105"
-                  loading="eager"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
 
         {/* ================= FEATURED ================= */}
         <motion.section
